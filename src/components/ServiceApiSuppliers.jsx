@@ -1,28 +1,35 @@
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
+import Global from "../Global";
 
 export default function ServiceApiSuppliers() {
-  const url = "https://services.odata.org/V4/Northwind/Northwind.svc/Suppliers";
+  const url = Global.urlNorthwind;
+
   const [suppliers, setSuppliers] = useState([]);
   const [detail, setDetails] = useState(null);
   const idRef = useRef();
 
   useEffect(() => {
-    loadSuppliers();
-  }, []);
-
-  const loadSuppliers = () => {
-    axios.get(url).then((response) => {
+    const request = "suppliers";
+    axios.get(url + request).then((response) => {
       console.log("Leyendo");
       setSuppliers(response.data.value);
     });
-  };
+  }, []);
 
   const searchID = () => {
     let id = parseInt(idRef.current.value);
-    
-    const supplier = suppliers.find( s => s.SupplierID === id)
-    setDetails(supplier || null)
+
+    const supplier = suppliers.find((s) => s.SupplierID === id);
+
+    //Otra forma
+    //suppliers.forEach((s) => {
+    //if (s.SupplierID === id) {
+    //  foundSupplier = s;
+    //}
+    //});
+
+    setDetails(supplier || null);
   };
 
   return (

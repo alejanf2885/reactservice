@@ -1,11 +1,14 @@
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import Global from "../Global";
 
-const url = "https://services.odata.org/V4/Northwind/Northwind.svc/Customers";
+const url = Global.urlNorthwind;
 
 export default function ServicioCustomers() {
     
-    const [customers, setCustomers] = useState
+const [customers, setCustomers] = useState([]);
+
+
 
 
     useEffect(()=>{
@@ -14,10 +17,11 @@ export default function ServicioCustomers() {
 
 
   const loadCustomers = () => {
+    let request = 'Customers'
     console.log("Antes del servicio");
-    axios.get(url).then((response) => {
+    axios.get(url+request).then((response) => {
       console.log("Leyendo");
-      customers = response.data.value;
+      setCustomers(response.data.value)
       console.log(customers);
     });
     console.log("Despues del servicio");

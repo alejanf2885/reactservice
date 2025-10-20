@@ -1,0 +1,69 @@
+.empleados-container {
+  max-width: 980px;
+  margin: 20px auto;
+  padding: 16px;
+}
+
+.empleados-header {
+  margin-bottom: 12px;
+  color: #223;
+  font-family: Inter, Roboto, system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Arial;
+}
+
+.empleados-header h1 {
+  margin: 0;
+}
+
+.empleados-header h4 {
+  margin: 6px 0 0;
+  color: #516075;
+}
+
+.empleados-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  align-items: stretch;
+}
+
+.empleado-card {
+  background: linear-gradient(180deg, #fff, #f7fbff);
+  border: 1px solid #e3e8ef;
+  border-radius: 10px;
+  padding: 12px;
+  box-shadow: 0 4px 10px rgba(35,50,80,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.empleado-name {
+  margin: 0;
+  color: #0b3b66;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.empleado-meta {
+  margin: 0;
+  color: #41535f;
+  font-size: 14px;
+}
+
+.empleados-empty {
+  padding: 24px;
+  text-align: center;
+  color: #64748b;
+  border: 1px dashed #dbe7f0;
+  border-radius: 8px;
+  background: #fbfdff;
+}
+
+.empleados-empty h3 {
+  margin: 0;
+}
+
+.empleados-empty p {
+  margin-top: 8px;
+  font-size: 13px;
+}
